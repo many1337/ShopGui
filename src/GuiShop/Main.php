@@ -13,7 +13,7 @@ use pocketmine\utils\TextFormat as TF;
 use pocketmine\network\mcpe\protocol\PacketPool;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use GuiShop\Modals\elements\{Dropdown, Input, Button, Label, Slider, StepSlider, Toggle};
-use GuiShop\Modals\network\{GuiDataPickItemPacket, ModalFormRequestPacket, ModalFormResponsePacket, ServerSettingsRequestPacket, ServerSettingsResponsePacket};
+use pocketmine\network\mcpe\protocol\{GuiDataPickItemPacket, ModalFormRequestPacket, ModalFormResponsePacket, ServerSettingsRequestPacket, ServerSettingsResponsePacket};
 use GuiShop\Modals\windows\{CustomForm, ModalWindow, SimpleForm};
 use pocketmine\command\{Command, CommandSender, ConsoleCommandSender, CommandExecutor};
 
@@ -147,11 +147,6 @@ public $Blocks = [
 	
   public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this, $this);
-    PacketPool::registerPacket(new GuiDataPickItemPacket());
-		PacketPool::registerPacket(new ModalFormRequestPacket());
-		PacketPool::registerPacket(new ModalFormResponsePacket());
-		PacketPool::registerPacket(new ServerSettingsRequestPacket());
-		PacketPool::registerPacket(new ServerSettingsResponsePacket());
     $this->item = [$this->Skulls, $this->Potions, $this->Mobs, $this->Raiding, $this->Farming, $this->Armor, $this->Tools, $this->Food, $this->Ores, $this->Blocks, $this->Miscellaneous];
   }
 
