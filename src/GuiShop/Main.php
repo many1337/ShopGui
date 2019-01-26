@@ -343,8 +343,9 @@ public $Blocks = [
     switch(strtolower($command)){
       case "shop":
         $this->sendMainShop($player);
-        return true;
+        return none;
     }
+	  return true;
   }
 
 }
